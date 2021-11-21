@@ -3,6 +3,7 @@ package ro.unibuc.dietapplication.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 
@@ -23,8 +24,9 @@ public class Food {
     @Column(name = "FOOD_CALORIES")
     private Long calories;
 
-    //todo: many-to-many
-
     @ManyToOne
     private Food_category foodCategory;
+
+    @OneToMany(mappedBy = "food", cascade = CascadeType.PERSIST)
+    private List<Diet_plan> dietPlanList;
 }

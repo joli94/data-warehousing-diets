@@ -45,6 +45,9 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     private List<Happiness> happinessList;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
+    private List<Billing> billingList;
+
     @OneToOne
     private Account account;
 }

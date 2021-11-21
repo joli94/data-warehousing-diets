@@ -3,6 +3,7 @@ package ro.unibuc.dietapplication.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 
@@ -31,4 +32,10 @@ public class Diet {
 
     @ManyToOne
     private Diet_goal dietGoal;
+
+    @OneToMany(mappedBy = "diet", cascade = CascadeType.PERSIST)
+    private List<Billing> billingList;
+
+    @OneToMany(mappedBy = "diet", cascade = CascadeType.PERSIST)
+    private List<Diet_plan> dietPlanList;
 }
