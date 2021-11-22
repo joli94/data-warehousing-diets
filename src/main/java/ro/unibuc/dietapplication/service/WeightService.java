@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 public class WeightService {
-    private WeightRepository weightRepository;
+    private final WeightRepository weightRepository;
 
     public WeightService(WeightRepository weightRepository) {
         this.weightRepository = weightRepository;
