@@ -3,6 +3,7 @@ package ro.unibuc.dietapplication.dto;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,15 +21,15 @@ public class UserDto {
 
     private String gender;
 
-    //private List<Optimum_caloriesDto> optimumCaloriesDtoList;
+    private List<Optimum_caloriesDto> optimumCaloriesDtoList;
 
     private CityDto cityDto;
 
-    //private List<WeightDto> weightDtoList;
+    private List<WeightDto> weightDtoList;
 
-    //private List<HappinessDto> happinessDtoList;
+    private List<HappinessDto> happinessDtoList;
 
-    //private List<BillingDto> billingDtoList;
+    private List<BillingDto> billingDtoList;
 
-    //private AccountDto accountDto;
+    private AccountDto accountDto;
 }

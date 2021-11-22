@@ -5,5 +5,5 @@ import ro.unibuc.dietapplication.dto.UserDto;
 import ro.unibuc.dietapplication.model.User;
 
 @Mapper
-public interface UserMapper extends EntityMapper <UserDto, User>{
+public interface UserMapper extends EntityMapper<UserDto, User>{
 }
