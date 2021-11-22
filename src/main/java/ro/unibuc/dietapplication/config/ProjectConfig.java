@@ -1,8 +1,10 @@
 package ro.unibuc.dietapplication.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import ro.unibuc.dietapplication.mapper.*;
 
+@Configuration
 public class ProjectConfig {
     @Bean
     public AccountMapper accountMapper() {
