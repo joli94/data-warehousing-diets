@@ -22,10 +22,14 @@ public class Diet {
     private String name;
 
     @Column(name = "DIET_PRICE")
-    private Long price;
+    private long price;
 
     @Column(name = "DIET_MAXIMUM_CALORIES")
-    private Long maximumCalories;
+    private long maximumCalories;
+
+    @Column(name = "DIET_IMAGE")
+    @Lob
+    private byte[] image;
 
     @ManyToOne
     private Diet_type dietType;

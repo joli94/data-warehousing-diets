@@ -1,7 +1,6 @@
 package ro.unibuc.dietapplication.dto;
 
 import lombok.*;
-import ro.unibuc.dietapplication.model.Billing;
 
 import java.util.List;
 
@@ -15,9 +14,11 @@ public class DietDto {
 
     private String name;
 
-    private Long price;
+    private long price;
 
-    private Long maximumCalories;
+    private long maximumCalories;
+
+    private byte[] image;
 
     private Diet_goalDto dietGoalDto;
 
