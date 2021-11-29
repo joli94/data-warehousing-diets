@@ -42,7 +42,7 @@ public class WeightController {
 
     @PutMapping("/{id}")
     public ResponseEntity<WeightDto> update(@PathVariable Long id, @RequestBody WeightDto request) {
-        if (id != request.getId()) {
+        if (!id.equals(request.getId())) {
             throw new BadRequestException("The path variable doesn't match the request body id!");
         }
 

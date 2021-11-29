@@ -34,7 +34,7 @@ public class AccountController {
 
     @PutMapping("/{id}")
     public ResponseEntity<AccountDto> update(@PathVariable Long id, @RequestBody AccountDto request){
-        if(id != request.getId()){
+        if(!id.equals(request.getId())){
             throw new BadRequestException("The path variable doesn't match the request body id!");
         }
 

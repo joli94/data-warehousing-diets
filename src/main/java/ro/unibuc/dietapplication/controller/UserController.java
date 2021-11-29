@@ -42,7 +42,7 @@ public class UserController {
 
     @PutMapping("/{id}")
     public ResponseEntity<UserDto> update(@PathVariable Long id, @RequestBody UserDto request){
-        if(id != request.getId()) {
+        if(!id.equals(request.getId())) {
             throw new BadRequestException("The path variable doesn't match the request body id!");
         }
 
