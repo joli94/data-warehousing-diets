@@ -10,6 +10,7 @@ import ro.unibuc.dietapplication.service.PaymentService;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/payments")
 public class PaymentController {

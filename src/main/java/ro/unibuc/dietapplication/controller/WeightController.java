@@ -11,6 +11,7 @@ import ro.unibuc.dietapplication.service.WeightService;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/weights")
 public class WeightController {

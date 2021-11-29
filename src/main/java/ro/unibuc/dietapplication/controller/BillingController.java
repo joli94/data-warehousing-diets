@@ -8,6 +8,7 @@ import ro.unibuc.dietapplication.mapper.BillingMapper;
 import ro.unibuc.dietapplication.model.Billing;
 import ro.unibuc.dietapplication.service.BillingService;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/billings")
 public class BillingController {

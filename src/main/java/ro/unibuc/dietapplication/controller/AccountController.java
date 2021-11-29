@@ -9,6 +9,7 @@ import ro.unibuc.dietapplication.mapper.AccountMapper;
 import ro.unibuc.dietapplication.model.Account;
 import ro.unibuc.dietapplication.service.AccountService;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/accounts")
 public class AccountController {
