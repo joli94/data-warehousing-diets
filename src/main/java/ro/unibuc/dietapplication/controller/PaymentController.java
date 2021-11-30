@@ -35,7 +35,11 @@ public class PaymentController {
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
-    //TODO: vom face cautare pentru plati dupa user?
+    /*@GetMapping
+    public ResponseEntity<List<PaymentDto>> findByUserId(@RequestParam Long id){
+        List<Payment> response = service.findByUserId(id);
+        return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
+    }*/
 
     @PostMapping
     public ResponseEntity<PaymentDto> create(@RequestBody PaymentDto request){

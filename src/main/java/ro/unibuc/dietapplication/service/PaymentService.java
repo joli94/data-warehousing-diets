@@ -17,6 +17,12 @@ public class PaymentService {
 
     public List<Payment> findAll() {return paymentRepository.findAll();}
 
+    /*public List<Payment> findByUserId(Long id){
+        return paymentRepository.findByUserId(id).orElseThrow(
+                ()-> new EntityNotFoundException("This user hasn't made any payments!")
+        );
+    }*/
+
     public Payment findById(Long id){
         return paymentRepository.findById(id).orElseThrow(
                 ()-> new EntityNotFoundException("The payment with this id doesn't exist in the database!")
