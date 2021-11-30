@@ -14,7 +14,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/diets")
 public class DietController {
     private final DietService service;
     private final DietMapper mapper;
@@ -30,10 +30,9 @@ public class DietController {
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
-    //TODO: modify it by giving a certain category
     @GetMapping
-    public ResponseEntity<List<DietDto>> findByCategory(){
-        List<Diet> response = service.findAll();
+    public ResponseEntity<List<DietDto>> findByCategory(@RequestParam Long id){
+        List<Diet> response = service.findByCategoryId(id);
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
