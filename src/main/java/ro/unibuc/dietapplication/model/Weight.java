@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 
@@ -19,9 +20,9 @@ public class Weight {
     private Long id;
 
     @Column(name = "WEIGHT_DATE")
-    private LocalDate date;
+    private LocalDateTime date;
 
-    @Column(name = "WEIGHT_NUMBER")//TODO:de facut cu zecimale
+    @Column(name = "WEIGHT_NUMBER")
     private Double value;
 
     @ManyToOne

@@ -5,6 +5,7 @@ import ro.unibuc.dietapplication.model.Weight;
 import ro.unibuc.dietapplication.repository.WeightRepository;
 
 import javax.persistence.EntityNotFoundException;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -26,11 +27,13 @@ public class WeightService {
     }
 
     public Weight create(Weight weight){
+        weight.setDate(LocalDateTime.now());
         return weightRepository.save(weight);
     }
 
     public Weight update(Weight weight){
         if(weightRepository.existsById(weight.getId())){
+            weight.setDate(LocalDateTime.now());
             return weightRepository.save(weight);
         } else {
             throw new EntityNotFoundException(String.format("There is no weight measurement with id=%s in the database!", weight.getId().toString()));
