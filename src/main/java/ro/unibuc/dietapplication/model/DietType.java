@@ -12,15 +12,15 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Diet_goal {
+public class DietType {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "DIET_GOAL_ID")
+    @Column(name = "DIET_TYPE_ID")
     private Long id;
 
-    @Column(name = "DIET_GOAL_NAME")
+    @Column(name = "DIET_TYPE_NAME")
     private String name;
 
-    @OneToMany(mappedBy = "dietGoal", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "dietType", cascade = CascadeType.PERSIST)
     private List<Diet> dietList;
 }
