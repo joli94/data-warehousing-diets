@@ -9,7 +9,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Diet_goalDto {
+public class DietGoalDto {
     private Long id;
 
     private String name;

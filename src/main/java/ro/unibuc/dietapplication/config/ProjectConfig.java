@@ -27,8 +27,8 @@ public class ProjectConfig {
     }
 
     @Bean
-    public Diet_goalMapper diet_goalMapper() {
-        return new Diet_goalMapperImpl();
+    public DietGoalMapper diet_goalMapper() {
+        return new DietGoalMapperImpl();
     }
 
     @Bean
@@ -37,8 +37,8 @@ public class ProjectConfig {
     }
 
     @Bean
-    public Diet_typeMapper diet_typeMapper() {
-        return new Diet_typeMapperImpl();
+    public DietTypeMapper diet_typeMapper() {
+        return new DietTypeMapperImpl();
     }
 
     @Bean

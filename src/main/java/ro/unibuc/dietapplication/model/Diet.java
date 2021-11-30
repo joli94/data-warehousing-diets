@@ -32,10 +32,10 @@ public class Diet {
     private byte[] image;
 
     @ManyToOne
-    private Diet_type dietType;
+    private DietType dietType;
 
     @ManyToOne
-    private Diet_goal dietGoal;
+    private DietGoal dietGoal;
 
     @OneToMany(mappedBy = "diet", cascade = CascadeType.PERSIST)
     private List<Billing> billingList;

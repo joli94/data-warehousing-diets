@@ -18,5 +18,7 @@ public class DietService {
         return dietRepository.findAll();
     }
 
-    public List<Diet> findByCategoryId(Long id){ return dietRepository.findByCategoryId(id); }
+    public List<Diet> findByGoalId(Long id) { return dietRepository.findByDietGoalId(id); }
+
+    public List<Diet> findByTypeId(Long id) { return dietRepository.findByDietTypeId(id); }
 }

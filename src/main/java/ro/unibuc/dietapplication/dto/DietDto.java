@@ -20,11 +20,7 @@ public class DietDto {
 
     private byte[] image;
 
-    private Diet_goalDto dietGoalDto;
+    private Long dietGoalId;
 
-    private Diet_typeDto dietTypeDto;
-
-    private List<BillingDto> billingDtoList;
-
-    private List<Diet_planDto> dietPlanDtoList;
+    private Long dietTypeId;
 }

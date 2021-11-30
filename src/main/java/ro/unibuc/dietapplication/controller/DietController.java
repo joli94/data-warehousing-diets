@@ -30,9 +30,15 @@ public class DietController {
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
-   @GetMapping("/category")
-    public ResponseEntity<List<DietDto>> findByCategory(@RequestParam Long id){
-        List<Diet> response = service.findByCategoryId(id);
+   @GetMapping("/goal")
+    public ResponseEntity<List<DietDto>> findByGoal(@RequestParam Long id){
+        List<Diet> response = service.findByGoalId(id);
+        return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
+    }
+
+    @GetMapping("/type")
+    public ResponseEntity<List<DietDto>> findByType(@RequestParam Long id){
+        List<Diet> response = service.findByTypeId(id);
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
