@@ -19,6 +19,7 @@ public class WeightService {
     public List<Weight> findAll(){
         return weightRepository.findAll();
     }
+    //TODO: de scos, daca nu-l folosim
 
     public Weight findById(Long id){
         return weightRepository.findById(id).orElseThrow(

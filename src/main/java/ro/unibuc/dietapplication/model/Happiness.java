@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 
@@ -19,7 +20,7 @@ public class Happiness {
     private Long id;
 
     @Column(name = "HAPPINESS_DATE")
-    private LocalDate date;
+    private LocalDateTime date;
 
     @Column(name = "HAPPINESS_NUMBER")
     private Long value;

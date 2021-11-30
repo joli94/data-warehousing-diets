@@ -1,0 +1,53 @@
+package ro.unibuc.dietapplication.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import ro.unibuc.dietapplication.dto.HappinessDto;
+import ro.unibuc.dietapplication.exception.BadRequestException;
+import ro.unibuc.dietapplication.mapper.HappinessMapper;
+import ro.unibuc.dietapplication.model.Happiness;
+import ro.unibuc.dietapplication.service.HappinessService;
+
+import java.util.List;
+
+@CrossOrigin(origins = "http://localhost:3000")
+@RestController
+@RequestMapping("/happiness")
+public class HappinessController {
+    private final HappinessService service;
+    private final HappinessMapper mapper;
+
+    public HappinessController(HappinessService service, HappinessMapper mapper) {
+        this.service = service;
+        this.mapper = mapper;
+    }
+
+    @GetMapping
+    public ResponseEntity<List<HappinessDto>> findAll(){
+        List<Happiness> response = service.findAll();
+        return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<HappinessDto> findById(@PathVariable Long id){
+        Happiness response = service.findById(id);
+        return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<HappinessDto> create(@RequestBody HappinessDto request){
+        Happiness response = service.create(mapper.toEntity(request));
+        return new ResponseEntity<>(mapper.toDto(response), HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<HappinessDto> update(@PathVariable Long id, @RequestBody HappinessDto request) {
+        if (!id.equals(request.getId())) {
+            throw new BadRequestException("The path variable doesn't match the request body id!");
+        }
+
+        Happiness response = service.update(mapper.toEntity(request));
+        return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
+    }
+}

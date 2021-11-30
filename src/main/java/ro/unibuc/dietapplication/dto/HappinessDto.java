@@ -1,8 +1,10 @@
 package ro.unibuc.dietapplication.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -12,9 +14,10 @@ import java.time.LocalDate;
 public class HappinessDto {
     private Long id;
 
-    private LocalDate date;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime date;
 
     private Long value;
 
-    private UserDto userDto;
+    private Long userId;
 }
