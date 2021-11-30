@@ -21,6 +21,10 @@ public class HappinessService {
     }
     //TODO: de scos, daca nu-l folosim
 
+    public List<Happiness> findByUserId(Long id){
+        return  happinessRepository.findByUserId(id);
+    }
+
     public Happiness findById(Long id){
         return happinessRepository.findById(id).orElseThrow(
                 ()-> new EntityNotFoundException("The happiness measurement with this id doesn't exist in the database!")

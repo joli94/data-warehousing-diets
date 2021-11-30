@@ -21,6 +21,10 @@ public class WeightService {
     }
     //TODO: de scos, daca nu-l folosim
 
+    public List<Weight> findByUserId(Long id){
+        return weightRepository.findByUserId(id);
+    }
+
     public Weight findById(Long id){
         return weightRepository.findById(id).orElseThrow(
                 ()-> new EntityNotFoundException("The weight measurement with this id doesn't exist in the database!")

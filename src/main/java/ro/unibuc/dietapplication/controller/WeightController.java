@@ -29,6 +29,12 @@ public class WeightController {
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
+    @GetMapping("/user")
+    public ResponseEntity<List<WeightDto>> findByUserId(@RequestParam Long id){
+        List<Weight> response = service.findByUserId(id);
+        return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<WeightDto> findById(@PathVariable Long id){
         Weight response = service.findById(id);

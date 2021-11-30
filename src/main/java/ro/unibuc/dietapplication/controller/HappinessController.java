@@ -29,6 +29,12 @@ public class HappinessController {
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
+    @GetMapping("/user")
+    public ResponseEntity<List<HappinessDto>> findByUserId(@RequestParam Long id){
+        List<Happiness> response = service.findByUserId(id);
+        return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<HappinessDto> findById(@PathVariable Long id){
         Happiness response = service.findById(id);

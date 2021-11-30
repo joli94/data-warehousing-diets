@@ -30,7 +30,7 @@ public class DietController {
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
-    @GetMapping
+   @GetMapping("/category")
     public ResponseEntity<List<DietDto>> findByCategory(@RequestParam Long id){
         List<Diet> response = service.findByCategoryId(id);
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
