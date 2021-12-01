@@ -4,10 +4,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ro.unibuc.dietapplication.dto.DietGoalDto;
-import ro.unibuc.dietapplication.dto.UserDto;
 import ro.unibuc.dietapplication.mapper.DietGoalMapper;
 import ro.unibuc.dietapplication.model.DietGoal;
-import ro.unibuc.dietapplication.model.User;
 import ro.unibuc.dietapplication.service.DietGoalService;
 
 import java.util.List;
