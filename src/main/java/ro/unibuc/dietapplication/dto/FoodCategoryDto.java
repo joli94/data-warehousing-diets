@@ -9,10 +9,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Food_categoryDto {
+public class FoodCategoryDto {
     private Long id;
 
     private String name;
-
-    private List<FoodDto> foodDtoList;
 }
