@@ -42,4 +42,10 @@ public class DietController {
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<DietDto> findById(@PathVariable Long id){
+        Diet response = service.findById(id);
+        return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
+    }
+
 }
