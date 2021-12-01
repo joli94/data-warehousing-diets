@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Food_category {
+public class FoodCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "FOOD_CATEGORY_ID")

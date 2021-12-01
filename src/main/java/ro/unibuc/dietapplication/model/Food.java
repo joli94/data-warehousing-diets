@@ -25,7 +25,7 @@ public class Food {
     private Long calories;
 
     @ManyToOne
-    private Food_category foodCategory;
+    private FoodCategory foodCategory;
 
     @OneToMany(mappedBy = "food", cascade = CascadeType.PERSIST)
     private List<Diet_plan> dietPlanList;
