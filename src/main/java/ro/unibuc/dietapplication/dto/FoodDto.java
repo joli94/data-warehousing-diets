@@ -16,7 +16,5 @@ public class FoodDto {
 
     private Long calories;
 
-    private FoodCategoryDto foodCategoryDto;
-
-    private List<Diet_planDto> dietPlanDtoList;
+    private Long foodCategoryId;
 }
