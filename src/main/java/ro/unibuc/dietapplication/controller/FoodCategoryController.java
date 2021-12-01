@@ -3,7 +3,6 @@ package ro.unibuc.dietapplication.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ro.unibuc.dietapplication.dto.DietTypeDto;
 import ro.unibuc.dietapplication.dto.FoodCategoryDto;
 import ro.unibuc.dietapplication.mapper.FoodCategoryMapper;
 import ro.unibuc.dietapplication.model.FoodCategory;
