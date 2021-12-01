@@ -13,6 +13,4 @@ public class DietGoalDto {
     private Long id;
 
     private String name;
-
-    private List<DietDto> dietDtoList;
 }
