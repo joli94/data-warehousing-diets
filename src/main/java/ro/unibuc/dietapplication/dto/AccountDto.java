@@ -12,7 +12,9 @@ public class AccountDto {
 
     private String password;
 
+    private String role;
+
     private String active;
 
-    private UserDto userDto;
+    private Long userId;
 }
