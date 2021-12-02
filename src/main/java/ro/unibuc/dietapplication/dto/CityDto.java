@@ -14,7 +14,5 @@ public class CityDto {
 
     private String name;
 
-    private List<UserDto> userDtoList;
-
-    private CountryDto countryDto;
+    private Long countryId;
 }
