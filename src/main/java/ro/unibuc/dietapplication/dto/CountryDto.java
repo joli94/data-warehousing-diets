@@ -16,6 +16,4 @@ public class CountryDto {
 
     //TODO:validare
     private String code;
-
-   private List<CityDto> cityDtoList;
 }
