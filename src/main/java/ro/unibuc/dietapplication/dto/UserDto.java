@@ -1,5 +1,6 @@
 package ro.unibuc.dietapplication.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -17,19 +18,12 @@ public class UserDto {
     private String first_name;
     private String last_name;
 
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate birth_date;
 
     private String gender;
 
     private List<Optimum_caloriesDto> optimumCaloriesDtoList;
 
-    private CityDto cityDto;
-
-    private List<WeightDto> weightDtoList;
-
-    private List<HappinessDto> happinessDtoList;
-
-    private List<BillingDto> billingDtoList;
-
-    private AccountDto accountDto;
+    private Long cityId;
 }

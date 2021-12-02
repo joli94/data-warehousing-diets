@@ -19,6 +19,8 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public List<User> findByCityId(Long id) { return userRepository.findByCityId(id); }
+
     public User findById(Long id){
         return userRepository.findById(id).orElseThrow(
                 ()-> new EntityNotFoundException("The user with this id doesn't exist in the database!")
