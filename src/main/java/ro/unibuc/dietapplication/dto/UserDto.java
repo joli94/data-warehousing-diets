@@ -23,7 +23,7 @@ public class UserDto {
 
     private String gender;
 
-    private List<Optimum_caloriesDto> optimumCaloriesDtoList;
+    //TODO: de pus optimul aici
 
     private Long cityId;
 }
