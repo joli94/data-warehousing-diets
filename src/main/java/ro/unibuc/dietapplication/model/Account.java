@@ -19,6 +19,8 @@ public class Account {
 
     private String password;
 
+    private String role;
+
     @Column(columnDefinition = "varchar2(1)")
     private String active;
 
