@@ -3,6 +3,7 @@ package ro.unibuc.dietapplication.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import ro.unibuc.dietapplication.mapper.*;
+import ro.unibuc.dietapplication.model.Ingredient;
 
 @Configuration
 public class ProjectConfig {
@@ -60,6 +61,9 @@ public class ProjectConfig {
     public HappinessMapper happinessMapper() {
         return new HappinessMapperImpl();
     }
+
+    @Bean
+    public IngredientMapper ingredientMapper() { return new IngredientMapperImpl(); }
 
     @Bean
     public Optimum_caloriesMapper optimum_caloriesMapper() {
