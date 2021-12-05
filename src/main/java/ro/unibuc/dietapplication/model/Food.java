@@ -24,6 +24,9 @@ public class Food {
     @Column(name = "FOOD_CALORIES")
     private Long calories;
 
+    @ManyToMany(mappedBy = "foodList", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private List<Ingredient> ingredientList;
+
     @ManyToOne
     private FoodCategory foodCategory;
 
