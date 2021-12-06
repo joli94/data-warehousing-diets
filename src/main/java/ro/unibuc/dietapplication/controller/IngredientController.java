@@ -28,11 +28,11 @@ public class IngredientController {
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
-    /*@GetMapping("/food")
+    @GetMapping("/food")
     public ResponseEntity<List<IngredientDto>> findByFoodId(@RequestParam Long id){
         List<Ingredient> response = service.findByFoodId(id);
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
-    }*/
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<IngredientDto> findById(@PathVariable Long id){
