@@ -3,7 +3,6 @@ package ro.unibuc.dietapplication.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import ro.unibuc.dietapplication.mapper.*;
-import ro.unibuc.dietapplication.model.Ingredient;
 
 @Configuration
 public class ProjectConfig {
@@ -33,8 +32,8 @@ public class ProjectConfig {
     }
 
     @Bean
-    public Diet_planMapper diet_planMapper() {
-        return new Diet_planMapperImpl();
+    public DietPlanMapper diet_planMapper() {
+        return new DietPlanMapperImpl();
     }
 
     @Bean

@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Diet_planDto {
+public class DietPlanDto {
     private Long id;
 
     private DietDto dietDto;

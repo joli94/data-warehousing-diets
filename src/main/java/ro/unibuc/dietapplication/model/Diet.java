@@ -41,5 +41,5 @@ public class Diet {
     private List<Billing> billingList;
 
     @OneToMany(mappedBy = "diet", cascade = CascadeType.PERSIST)
-    private List<Diet_plan> dietPlanList;
+    private List<DietPlan> dietPlanList;
 }
