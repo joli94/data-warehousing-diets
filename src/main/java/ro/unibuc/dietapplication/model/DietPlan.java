@@ -1,9 +1,13 @@
 package ro.unibuc.dietapplication.model;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 
 @Entity
-public class Diet_plan {
+@Table(name = "DIET_PLAN")
+@Getter
+public class DietPlan {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "DIET_PLAN_ID")

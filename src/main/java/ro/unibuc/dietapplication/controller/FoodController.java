@@ -34,6 +34,12 @@ public class FoodController {
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
+    @GetMapping("/diet")
+    public ResponseEntity<List<FoodDto>> findByDiet(@RequestParam Long id){
+        List<Food> response = service.findByDiet(id);
+        return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<FoodDto> findById(@PathVariable Long id){
         Food response = service.findById(id);
