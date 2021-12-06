@@ -13,12 +13,11 @@ import java.util.List;
 @Service
 public class IngredientService {
     private final IngredientRepository ingredientRepository;
+    private final FoodIngredientsService foodIngredientsService;
 
-    private final FoodIngredientsRepository foodIngredientsRepository;
-
-    public IngredientService(IngredientRepository ingredientRepository, FoodIngredientsRepository foodIngredientsRepository) {
+    public IngredientService(IngredientRepository ingredientRepository, FoodIngredientsService foodIngredientsRepository) {
         this.ingredientRepository = ingredientRepository;
-        this.foodIngredientsRepository = foodIngredientsRepository;
+        this.foodIngredientsService = foodIngredientsRepository;
     }
 
     public List<Ingredient> findAll(){
@@ -27,7 +26,7 @@ public class IngredientService {
 
     public List<Ingredient> findByFoodId(Long id){
         List<Ingredient> ingredientList = new ArrayList<>();
-        List<FoodIngredients> result =  foodIngredientsRepository.findByFoodId(id);
+        List<FoodIngredients> result =  foodIngredientsService.findByFoodId(id);
 
         result.forEach((foodIngredients) -> ingredientList.add(findById(foodIngredients.getId())));
 
