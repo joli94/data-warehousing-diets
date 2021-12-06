@@ -24,10 +24,6 @@ public class Ingredient {
     @Column(name = "INGREDIENT_CALORIES")
     private Long calories;
 
-    @ManyToMany
-    @JoinTable(name = "FOOD_INGREDIENTS",
-            joinColumns = @JoinColumn(name = "INGREDIENT_ID", referencedColumnName = "INGREDIENT_ID"),
-            inverseJoinColumns = @JoinColumn(name = "FOOD_ID", referencedColumnName = "FOOD_ID")
-    )
-    private List<Food> foodList;
+    @OneToMany(mappedBy = "ingredient", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private List<FoodIngredients> foodIngredientsList;
 }
