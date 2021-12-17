@@ -41,11 +41,11 @@ public class UserController {
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
-    @PostMapping
+    /*@PostMapping
     public ResponseEntity<UserDto> create(@RequestBody UserDto request){
         User response = service.create(mapper.toEntity(request));
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.CREATED);
-    }
+    }*/
 
     @PutMapping("/{id}")
     public ResponseEntity<UserDto> update(@PathVariable Long id, @RequestBody UserDto request){

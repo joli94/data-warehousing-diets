@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Builder
 public class Account {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ACCOUNT_ID")
     private Long id;
 

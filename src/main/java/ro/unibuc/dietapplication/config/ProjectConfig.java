@@ -75,6 +75,9 @@ public class ProjectConfig {
     }
 
     @Bean
+    public RegistrationMapper registrationMapper() { return  new RegistrationMapperImpl(); }
+
+    @Bean
     public UserMapper userMapper() {
         return new UserMapperImpl();
     }
