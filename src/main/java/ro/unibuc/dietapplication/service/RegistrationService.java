@@ -17,7 +17,6 @@ public class RegistrationService {
         this.accountService = accountService;
     }
 
-    //TODO: schimbam in obiect? E nevoie?
     public void create(Registration registration){
         User registeredUser = User.builder()
                 .username(registration.getUsername())

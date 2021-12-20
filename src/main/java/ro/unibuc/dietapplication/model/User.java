@@ -20,6 +20,7 @@ public class User {
     @Column(name = "USER_ID")
     private Long id;
 
+    @Column(unique = true)
     private String username;
     private String first_name;
     private String last_name;
@@ -48,6 +49,6 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     private List<Billing> billingList;
 
-    @OneToOne
+    @OneToOne(mappedBy = "user")
     private Account account;
 }
