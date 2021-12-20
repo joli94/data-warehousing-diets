@@ -1,5 +1,6 @@
 package ro.unibuc.dietapplication.service;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import ro.unibuc.dietapplication.exception.BadRequestException;
 import ro.unibuc.dietapplication.model.Account;
@@ -14,11 +15,13 @@ public class RegistrationService {
     private final UserService userService;
     private final CityService cityService;
     private final AccountService accountService;
+    private final PasswordEncoder passwordEncoder;
 
-    public RegistrationService(UserService userService, CityService cityService, AccountService accountService) {
+    public RegistrationService(UserService userService, CityService cityService, AccountService accountService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.cityService = cityService;
         this.accountService = accountService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public void create(Registration registration){
@@ -38,7 +41,7 @@ public class RegistrationService {
             Account registeredAccount = Account.builder()
                     .id(resultedUser.getId())
                     .user(resultedUser)
-                    .password(registration.getPassword())
+                    .password(passwordEncoder.encode(registration.getPassword()))
                     .role("user")
                     .active("1")
                     .build();
