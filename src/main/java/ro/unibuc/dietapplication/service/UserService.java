@@ -21,6 +21,8 @@ public class UserService {
 
     public List<User> findByCityId(Long id) { return userRepository.findByCityId(id); }
 
+    public boolean existsByUsername(String username) { return userRepository.existsByUsername(username); }
+
     public User findById(Long id){
         return userRepository.findById(id).orElseThrow(
                 ()-> new EntityNotFoundException("The user with this id doesn't exist in the database!")
