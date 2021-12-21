@@ -41,15 +41,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         protected void configure(HttpSecurity http) throws Exception{
                 http
                         .authorizeRequests()
-                                .antMatchers("/registration/", "/cities/**", "/countries/**", "dietGoals", "/dietTypes", "/diets").permitAll()
-                                .antMatchers("/users/**","/accounts/**", "/billings/**", "/dietPlans/**").authenticated()
-                                .anyRequest().authenticated()
+                                .antMatchers("/users", "/users/city").hasRole("ADMIN")
+                                //.antMatchers("/users/{id}").access("hasRole('ADMIN') or authentication.principal.equals(#id)")
+                                .antMatchers("/users/{id}").hasAnyRole("ADMIN", "USER")
+                                .antMatchers("/accounts/**", "/billings/**", "/payments/**").authenticated()
+                                .antMatchers("/happiness/**", "/weights/**").authenticated()
+                                .antMatchers("/dietPlans/**").authenticated()
+                                .antMatchers("/foodCategories/**", "/foods/**", "/ingredients/**").authenticated()
+                                .antMatchers("/registration/").permitAll()
+                                .antMatchers("/cities/**", "/countries/**").permitAll()
+                                .antMatchers("/dietGoals/**", "/dietTypes/**", "/diets").permitAll()
+                                //.anyRequest().authenticated()
                         .and()
                                 .httpBasic()
                         .and()
                                 .csrf().disable();
 
-                //TODO: de pus toate path-urile, si de pus roluri
         }
 
 }

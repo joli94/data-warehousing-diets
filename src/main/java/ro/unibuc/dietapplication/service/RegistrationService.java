@@ -42,7 +42,7 @@ public class RegistrationService {
                     .id(resultedUser.getId())
                     .user(resultedUser)
                     .password(passwordEncoder.encode(registration.getPassword()))
-                    .role("user")
+                    .role("ROLE_USER")
                     .active("1")
                     .build();
 
