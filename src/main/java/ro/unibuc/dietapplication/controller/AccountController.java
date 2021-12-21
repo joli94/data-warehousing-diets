@@ -27,11 +27,11 @@ public class AccountController {
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
-    @PostMapping
+    /*@PostMapping
     public ResponseEntity<AccountDto> create(@RequestBody AccountDto request){
         Account response = service.create(mapper.toEntity(request));
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.CREATED);
-    }
+    }*/
 
     @PutMapping("/{id}")
     public ResponseEntity<AccountDto> update(@PathVariable Long id, @RequestBody AccountDto request){
