@@ -43,8 +43,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         .authorizeRequests()
                                 .antMatchers("/users", "/users/city").hasRole("ADMIN")
                                 //.antMatchers("/users/{id}").access("hasRole('ADMIN') or authentication.principal.equals(#id)")
-                                .antMatchers("/users/{id}").hasAnyRole("ADMIN", "USER")
-                                .antMatchers("/accounts/**", "/billings/**", "/payments/**").authenticated()
+                                .antMatchers("/users/{id}", "/accounts/**").hasAnyRole("ADMIN", "USER")
+                                .antMatchers("/billings/**", "/payments/**").authenticated()
                                 .antMatchers("/happiness/**", "/weights/**").authenticated()
                                 .antMatchers("/dietPlans/**").authenticated()
                                 .antMatchers("/foodCategories/**", "/foods/**", "/ingredients/**").authenticated()
@@ -55,8 +55,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         .and()
                                 .httpBasic()
                         .and()
+                                .formLogin()
+                                .loginPage("/login")
+                                .permitAll()
+                        .and()
+                                .logout()
+                                .permitAll()
+                        .and()
                                 .csrf().disable();
-
         }
 
 }
