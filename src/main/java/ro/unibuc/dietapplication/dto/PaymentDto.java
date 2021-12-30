@@ -15,6 +15,4 @@ public class PaymentDto {
     private LocalDate date;
 
     private Long amount;
-
-    private BillingDto billingDto;
 }

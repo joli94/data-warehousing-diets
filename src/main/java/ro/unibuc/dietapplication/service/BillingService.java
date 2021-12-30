@@ -5,6 +5,8 @@ import ro.unibuc.dietapplication.model.Billing;
 import ro.unibuc.dietapplication.repository.BillingRepository;
 
 import javax.persistence.EntityNotFoundException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Service
 public class BillingService {
@@ -20,6 +22,7 @@ public class BillingService {
         );
     }
     public Billing create(Billing billing){
+        billing.getPayment().setDate(LocalDate.now());
         return billingRepository.save(billing);
     }
 }
