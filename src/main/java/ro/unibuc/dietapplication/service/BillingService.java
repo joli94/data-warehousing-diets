@@ -7,6 +7,7 @@ import ro.unibuc.dietapplication.repository.BillingRepository;
 import javax.persistence.EntityNotFoundException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class BillingService {
@@ -15,6 +16,11 @@ public class BillingService {
     public BillingService(BillingRepository billingRepository) {
         this.billingRepository = billingRepository;
     }
+
+    public List<Billing> findByUser(Long id) {
+        return billingRepository.findByUserId(id);
+    }
+
 
     public Billing findById(Long id){
         return billingRepository.findById(id).orElseThrow(
