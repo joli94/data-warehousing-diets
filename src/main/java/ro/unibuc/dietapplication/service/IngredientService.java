@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 import ro.unibuc.dietapplication.exception.EntityNotFoundException;
 import ro.unibuc.dietapplication.model.FoodIngredients;
 import ro.unibuc.dietapplication.model.Ingredient;
-import ro.unibuc.dietapplication.repository.FoodIngredientsRepository;
 import ro.unibuc.dietapplication.repository.IngredientRepository;
 
 import java.util.ArrayList;

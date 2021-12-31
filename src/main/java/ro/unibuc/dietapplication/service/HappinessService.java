@@ -1,10 +1,10 @@
 package ro.unibuc.dietapplication.service;
 
 import org.springframework.stereotype.Service;
+import ro.unibuc.dietapplication.exception.EntityNotFoundException;
 import ro.unibuc.dietapplication.model.Happiness;
 import ro.unibuc.dietapplication.repository.HappinessRepository;
 
-import javax.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
 import java.util.List;
 
