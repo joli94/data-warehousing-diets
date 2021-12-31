@@ -31,6 +31,4 @@ public class AccountService {
             throw new EntityNotFoundException(String.format("There is no account with id=%s in the database!", account.getId().toString()));
         }
     }
-
-
 }
