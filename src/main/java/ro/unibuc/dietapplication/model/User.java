@@ -49,6 +49,6 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     private List<Billing> billingList;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne
     private Account account;
 }
