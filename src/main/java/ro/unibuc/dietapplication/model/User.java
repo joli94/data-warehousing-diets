@@ -25,6 +25,8 @@ public class User {
     private String first_name;
     private String last_name;
 
+    private String target;
+
     private LocalDate birth_date;
 
     @Column(columnDefinition = "varchar2(1)")
