@@ -56,4 +56,10 @@ public class UserController {
         User response = service.update(mapper.toEntity(request));
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
+
+    @PutMapping("/changeAdmin")
+    public ResponseEntity<Void> changeAdmin(@RequestParam Long id){
+       service.changeAdmin(id);
+       return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

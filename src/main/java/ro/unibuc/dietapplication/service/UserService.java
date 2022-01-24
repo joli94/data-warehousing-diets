@@ -46,4 +46,12 @@ public class UserService {
             throw new EntityNotFoundException(String.format("There is no user with id=%s in the database!", user.getId().toString()));
         }
     }
+
+    public void changeAdmin(Long id) {
+        User toBeChanged = findById(id);
+
+        toBeChanged.setIsAdmin(!toBeChanged.getIsAdmin());
+
+        userRepository.save(toBeChanged);
+    }
 }
