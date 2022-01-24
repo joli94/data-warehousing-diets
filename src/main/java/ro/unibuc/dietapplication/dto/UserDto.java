@@ -26,4 +26,6 @@ public class UserDto {
     private String gender;
 
     private Long cityId;
+
+    private Boolean isAdmin;
 }

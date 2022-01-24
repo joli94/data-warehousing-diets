@@ -41,6 +41,8 @@ public class UserController {
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
+    //@GetMapping
+
     @PutMapping("/{id}")
     public ResponseEntity<UserDto> update(@PathVariable Long id, @RequestBody UserDto request){
         if(!id.equals(request.getId())) {

@@ -29,6 +29,9 @@ public class User {
 
     private LocalDate birth_date;
 
+    @Column(columnDefinition = "number(1) default 0")
+    private Boolean isAdmin;
+
     @Column(columnDefinition = "varchar2(1)")
     private String gender;
 
