@@ -41,7 +41,11 @@ public class UserController {
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
-    //@GetMapping
+    @GetMapping("/username")
+    public ResponseEntity<UserDto> findByEmail(@RequestParam String request){
+        User response = service.findByUsername(request);
+        return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
+    }
 
     @PutMapping("/{id}")
     public ResponseEntity<UserDto> update(@PathVariable Long id, @RequestBody UserDto request){

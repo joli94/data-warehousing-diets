@@ -29,6 +29,12 @@ public class UserService {
         );
     }
 
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username).orElseThrow(
+                () -> new EntityNotFoundException("The user with this username doesn't exist in the database!")
+        );
+    }
+
     public User create(User user){
         return userRepository.save(user);
     }
