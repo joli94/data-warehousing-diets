@@ -16,10 +16,11 @@ public class BillingService {
         this.billingRepository = billingRepository;
     }
 
+    public List<Billing> findAll() { return billingRepository.findAll(); }
+
     public List<Billing> findByUser(Long id) {
         return billingRepository.findByUserId(id);
     }
-
 
     public Billing findById(Long id){
         return billingRepository.findById(id).orElseThrow(

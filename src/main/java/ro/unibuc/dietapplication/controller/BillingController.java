@@ -22,6 +22,11 @@ public class BillingController {
         this.mapper = mapper;
     }
 
+    @GetMapping
+    public ResponseEntity<List<BillingDto>> findAll() {
+        return new ResponseEntity<>(mapper.toDto(service.findAll()), HttpStatus.OK);
+    }
+
     @GetMapping("/user")
     public ResponseEntity<List<BillingDto>> findByUser(@RequestParam Long id){
         List<Billing> response = service.findByUser(id);
