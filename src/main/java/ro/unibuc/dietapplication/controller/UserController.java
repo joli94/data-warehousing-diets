@@ -41,11 +41,11 @@ public class UserController {
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
-    /*@PostMapping
-    public ResponseEntity<UserDto> create(@RequestBody UserDto request){
-        User response = service.create(mapper.toEntity(request));
-        return new ResponseEntity<>(mapper.toDto(response), HttpStatus.CREATED);
-    }*/
+    @GetMapping("/username")
+    public ResponseEntity<UserDto> findByEmail(@RequestParam String request){
+        User response = service.findByUsername(request);
+        return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
+    }
 
     @PutMapping("/{id}")
     public ResponseEntity<UserDto> update(@PathVariable Long id, @RequestBody UserDto request){
@@ -57,4 +57,9 @@ public class UserController {
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
+    @PutMapping("/changeAdmin")
+    public ResponseEntity<Void> changeAdmin(@RequestParam Long id){
+       service.changeAdmin(id);
+       return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

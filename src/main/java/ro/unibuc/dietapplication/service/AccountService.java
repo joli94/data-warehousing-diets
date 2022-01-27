@@ -1,10 +1,10 @@
 package ro.unibuc.dietapplication.service;
 
 import org.springframework.stereotype.Service;
+import ro.unibuc.dietapplication.exception.EntityNotFoundException;
 import ro.unibuc.dietapplication.model.Account;
 import ro.unibuc.dietapplication.repository.AccountRepository;
 
-import javax.persistence.EntityNotFoundException;
 
 @Service
 public class AccountService {
@@ -31,6 +31,4 @@ public class AccountService {
             throw new EntityNotFoundException(String.format("There is no account with id=%s in the database!", account.getId().toString()));
         }
     }
-
-
 }

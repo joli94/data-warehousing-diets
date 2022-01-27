@@ -25,7 +25,12 @@ public class User {
     private String first_name;
     private String last_name;
 
+    private String target;
+
     private LocalDate birth_date;
+
+    @Column(columnDefinition = "number(1) default 0")
+    private Boolean isAdmin;
 
     @Column(columnDefinition = "varchar2(1)")
     private String gender;
@@ -49,6 +54,6 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     private List<Billing> billingList;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne
     private Account account;
 }

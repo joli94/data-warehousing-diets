@@ -15,6 +15,4 @@ public class AccountDto {
     private String role;
 
     private String active;
-
-    private Long userId;
 }

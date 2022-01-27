@@ -48,4 +48,19 @@ public class DietController {
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<DietDto> update(@PathVariable Long id, @RequestBody DietDto request) {
+        if (!id.equals(request.getId())) {
+            throw new BadRequestException("The path variable doesn't match the request body id!");
+        }
+
+        Diet response = service.update(mapper.toEntity(request));
+        return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
+        service.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

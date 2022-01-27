@@ -8,6 +8,8 @@ import ro.unibuc.dietapplication.mapper.BillingMapper;
 import ro.unibuc.dietapplication.model.Billing;
 import ro.unibuc.dietapplication.service.BillingService;
 
+import java.util.List;
+
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/billings")
@@ -18,6 +20,17 @@ public class BillingController {
     public BillingController(BillingService service, BillingMapper mapper) {
         this.service = service;
         this.mapper = mapper;
+    }
+
+    @GetMapping
+    public ResponseEntity<List<BillingDto>> findAll() {
+        return new ResponseEntity<>(mapper.toDto(service.findAll()), HttpStatus.OK);
+    }
+
+    @GetMapping("/user")
+    public ResponseEntity<List<BillingDto>> findByUser(@RequestParam Long id){
+        List<Billing> response = service.findByUser(id);
+        return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

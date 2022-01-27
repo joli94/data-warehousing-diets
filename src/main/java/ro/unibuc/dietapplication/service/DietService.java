@@ -27,4 +27,15 @@ public class DietService {
             ()-> new EntityNotFoundException("The diet with this id doesn't exist in the database!")
     );
     }
+
+    public Diet update(Diet diet){
+        if(dietRepository.existsById(diet.getId())){
+            return dietRepository.save(diet);
+        } else {
+            throw new EntityNotFoundException(String.format("There is no diet with id=%s in the database!", diet.getId().toString()));
+        }
+
+    }
+
+    public void delete(Long id) { dietRepository.delete(findById(id));}
 }

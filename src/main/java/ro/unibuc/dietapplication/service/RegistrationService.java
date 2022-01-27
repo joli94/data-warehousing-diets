@@ -1,42 +1,40 @@
 package ro.unibuc.dietapplication.service;
 
 import org.springframework.stereotype.Service;
-import ro.unibuc.dietapplication.model.Account;
+import ro.unibuc.dietapplication.exception.BadRequestException;
 import ro.unibuc.dietapplication.model.Registration;
 import ro.unibuc.dietapplication.model.User;
 
+import javax.transaction.Transactional;
+
 @Service
+@Transactional
 public class RegistrationService {
     private final UserService userService;
     private final CityService cityService;
-    private final AccountService accountService;
 
-    public RegistrationService(UserService userService, CityService cityService, AccountService accountService) {
+    public RegistrationService(UserService userService, CityService cityService) {
         this.userService = userService;
         this.cityService = cityService;
-        this.accountService = accountService;
+
     }
 
     public void create(Registration registration){
-        User registeredUser = User.builder()
-                .username(registration.getUsername())
-                .first_name(registration.getFirst_name())
-                .last_name(registration.getLast_name())
-                .birth_date(registration.getBirth_date())
-                .gender(registration.getGender())
-                .city(cityService.findById(registration.getCity()))
-                .build();
+        if(! userService.existsByUsername(registration.getUsername())) {
 
-        User resultedUser = userService.create(registeredUser);
+            User registeredUser = User.builder()
+                    .username(registration.getUsername())
+                    .first_name(registration.getFirst_name())
+                    .last_name(registration.getLast_name())
+                    .birth_date(registration.getBirth_date())
+                    .gender(registration.getGender())
+                    .city(cityService.findById(registration.getCity()))
+                    .build();
 
-        Account registeredAccount = Account.builder()
-                .id(resultedUser.getId())
-                .user(resultedUser)
-                .password(registration.getPassword())
-                .role("user")
-                .active("1")
-                .build();
+            User resultedUser = userService.create(registeredUser);
 
-        Account resultedAccount = accountService.create(registeredAccount);
+        } else {
+            throw new BadRequestException("This username is already taken");
+        }
     }
 }

@@ -18,10 +18,14 @@ public class UserDto {
     private String first_name;
     private String last_name;
 
+    private String target;
+
     @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate birth_date;
 
     private String gender;
 
     private Long cityId;
+
+    private Boolean isAdmin;
 }
